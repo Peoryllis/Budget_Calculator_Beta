@@ -7,7 +7,7 @@ from tkinter import *
 from tkinter import ttk
 import sys
 
-sys.path.insert(0, "/Users/anayaahanotu/Documents/Coding/GitHub/Special_tkinter_objects")
+sys.path.insert(0, "GitHub/Special_tkinter_objects")
 
 from Special_tkinter_objects import tkinterPlus2 as tk2
 

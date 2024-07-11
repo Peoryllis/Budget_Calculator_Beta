@@ -1,6 +1,11 @@
 import sys
-sys.path.insert(1, 'E:/')
-from tkinterPlus import *
+
+sys.path.insert(0, "GitHub/Special_tkinter_objects")
+
+from Special_tkinter_objects import tkinterPlus2 as tk2
+
+from tkinter import * 
+from tkinter import ttk
 import time
 
 
@@ -33,7 +38,7 @@ class DataRecord(Frame):
         self.titleLabel = Label(self, bg='white', text=title, font=('Calibri', 24, 'bold'))
         self.titleLabel.place(relx=0.5, rely=0.005, anchor='n')
 
-        self.xAddedInput = Mutable_Label(self,\
+        self.xAddedInput = tk2.Mutable_Label(self,\
                                          kwargs={'bg':'white', 'font':('Calibri', 18), 'width':14, 'height':1, 'relief':GROOVE},\
                                          make_numeric=True)
         self.xAddedInput.place(relx=0.5, rely=0.13, anchor='n')
@@ -52,7 +57,7 @@ class DataRecord(Frame):
         self.removeRowButton.place(relx=0.8, relwidth=0.2, rely=0.13, height=self.xAddedInput.winfo_height())
 
         if numColumns > len(columnLabels):
-            for add in rDataange(numColumns - len(columnLabels)) :
+            for add in tk2.Datarange(numColumns - len(columnLabels)) :
                 columnLabels.append('')
 
         self.columnLabels = columnLabels
@@ -62,7 +67,7 @@ class DataRecord(Frame):
         self.dataLog = {}
         self.numColumns=numColumns
 
-        self.dataList = ScrollingBar(self, color=self['bg'], scroll='XY')
+        self.dataList = tk2.ScrollingBar(self, color=self['bg'], scroll='XY')
         self.dataList.place(rely=0.25, x=0, relwidth=1, relheight = 0.75)
 
         self.placeholderLabel = self.dataList.item(
@@ -157,7 +162,7 @@ class DataRecord(Frame):
             for item in range(self.numColumns):
                 self.dataLog[entryNum].append(
                     self.dataList.item(
-                        obj=Mutable_Label,
+                        obj=tk2.Mutable_Label,
                         kwargs={
                             'kwargs':{
                                 'bg':'white',

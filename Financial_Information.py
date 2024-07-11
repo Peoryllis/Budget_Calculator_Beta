@@ -1,8 +1,11 @@
 import sys
-sys.path.append('cd')
-import time
 
-from tkinterPlus import *
+sys.path.insert(0, "GitHub/Special_tkinter_objects")
+
+from Special_tkinter_objects import tkinterPlus2 as tk2
+
+from tkinter import *
+import time
 
 class Financial_Information(Frame):
     '''Financial Information, the user inputs their financial information + bills'''
@@ -25,12 +28,12 @@ class Financial_Information(Frame):
         self.removeBankButton = Button(self, text='Remove Bank', bg='white', relief=GROOVE, borderwidth=3, font=('Ariel', 8), command=self.remove_bank)
         self.removeBankButton.place(relx=0.8, rely=0, relwidth=0.2, relheight=0.2)
 
-        self.banklist = ScrollingBar(self, '#CCDCEC', scroll='x')
+        self.banklist = tk2.ScrollingBar(self, '#CCDCEC', scroll='x')
         self.banklist.place(relx=0, rely=0.2, relwidth=1, relheight=0.8)
 
         self.banklist.item(Label, kwargs={'bg':'white', 'text':'Cash', 'width':14, 'height':2, 'font':('Ariel', 12)}, row=0, column=0) #keep visual tracks of all the banks
 
-        self.cashInput = self.banklist.item(Mutable_Label,({'bg':'#E4F6F8', 'width':14, 'height':2, 'font':('Ariel', 12), 'borderwidth':1, 'relief':GROOVE}, True, '#cee5ed'), row=1, column=0)
+        self.cashInput = self.banklist.item(tk2.Mutable_Label,({'bg':'#E4F6F8', 'width':14, 'height':2, 'font':('Ariel', 12), 'borderwidth':1, 'relief':GROOVE}, True, '#cee5ed'), row=1, column=0)
         
         self.cashInput.bind('<Key>', lambda e: self.edit_values('CASH'), '+')
 
@@ -61,7 +64,7 @@ class Financial_Information(Frame):
             self.bankinginfo[bank] = [self.banklist.item(Label,\
                                                          kwargs={'bg':'white', 'text':bank, 'width':14, 'height':2, 'font':('Ariel', 12)},
                                                          row=0, column=len(self.bankinginfo.keys()) + 1),\
-                                      self.banklist.item(Mutable_Label,\
+                                      self.banklist.item(tk2.Mutable_Label,\
                                                          ({'bg':'#E4F6F8', 'width':14, 'height':2, 'font':('Ariel', 12), 'borderwidth':1, 'relief':GROOVE, 'text':0}, True, '#cee5ed'),\
                                                          row=1, column=len(self.bankinginfo.keys()) + 1)] #add the banks to the scrolling bar so users can input the amount of money in their bank account
             self.numbanks += 1
@@ -80,7 +83,7 @@ class Financial_Information(Frame):
         label = Label (popup, bg=popup['bg'], text='Bank name') #Tells people what to input
         label.grid(row=1, column=0, pady=2, padx=2)
 
-        bankLabel = Mutable_Label(popup,{'bg':'#749cbc', 'width':20, 'height':1}) #allows people to input a bank
+        bankLabel = tk2.Mutable_Label(popup,{'bg':'#749cbc', 'width':20, 'height':1}) #allows people to input a bank
         bankLabel.bind('<Return>',lambda e:[add_bank(bankLabel['text']), bankLabel.configure(text='')])
         bankLabel.grid(row=2, column=0, pady=2, padx=2)
 
@@ -144,7 +147,7 @@ class Financial_Information(Frame):
         label = Label (popup, bg=popup['bg'], text='Select Banks') #Tells people what to input
         label.grid(row=1, column=0, pady=2, padx=2)
 
-        labelselect = ScrollingBar(popup, '#749cbc', width=150, height=1200/9) #homes the selectable banks
+        labelselect = tk2.ScrollingBar(popup, '#749cbc', width=150, height=1200/9) #homes the selectable banks
         labelselect.grid(row=2, column=0, pady=2, padx=2)
 
         rownum = 0 #for placing the banks using grid()
