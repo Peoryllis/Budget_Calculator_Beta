@@ -3,7 +3,13 @@ from Personal_Information_Calculator import *
 from DataListBeta import *
 from ShoppingList import *
 import tkinter
+from tkinter import *
 from tkinter import ttk
+import sys
+
+sys.path.insert(0, "/Users/anayaahanotu/Documents/Coding/GitHub/Special_tkinter_objects")
+
+from Special_tkinter_objects import tkinterPlus2 as tk2
 
 
 root = tkinter.Tk() #initiate the window
@@ -33,7 +39,7 @@ class Budget_Calculator(Frame):
 
         self.taxLabel = Label(self, bg='white', text='Sales Tax (%)', font=('Ariel', 10, 'bold')) #have users input the sales tax
         self.taxLabel.place(relx=3/12, rely=0, relwidth=1/12, relheight=1/24)
-        self.taxInput = Mutable_Label(self, {'bg':'#E4F6F8', 'text':0, 'font':('Ariel', 10)}, True, '#cee5ed')
+        self.taxInput = tk2.Mutable_Label(self, {'bg':'#E4F6F8', 'text':0, 'font':('Ariel', 10)}, True, '#cee5ed')
         self.taxInput.place(relx=3/12, rely=1/24, relwidth=1/12, relheight=1/24)
         self.taxInput.bind('<Key>', lambda e: self.create_budget(), '+')
 
@@ -44,7 +50,7 @@ class Budget_Calculator(Frame):
 
         self.incomeLabel = Label(self, bg='white', text='Income per month ($)', font=('Ariel', 8, 'bold')) #have users input the sales tax
         self.incomeLabel.place(relx=7/12, rely=0, relwidth=1/12, relheight=1/24)
-        self.incomeInput = Mutable_Label(self, {'bg':'#E4F6F8', 'text':0, 'font':('Ariel', 10)}, True, '#cee5ed')
+        self.incomeInput = tk2.Mutable_Label(self, {'bg':'#E4F6F8', 'text':0, 'font':('Ariel', 10)}, True, '#cee5ed')
         self.incomeInput.place(relx=7/12, rely=1/24, relwidth=1/12, relheight=1/24)
         self.incomeInput.bind('<Key>', lambda e: self.create_budget(), '+')
 
@@ -56,7 +62,7 @@ class Budget_Calculator(Frame):
             )
         self.portionSetterLabel.place(relx=8/12, rely=0, relwidth=2/12, relheight=1/24)
 
-        self.portionSet = Mutable_Label(
+        self.portionSet = tk2.Mutable_Label(
             master = self,
             kwargs = {
                 'bg':self.maincolor,
@@ -90,7 +96,7 @@ class Budget_Calculator(Frame):
 
         self.update()
 
-        self.visual = LabelImage(
+        self.visual = tk2.LabelImage(
             master = self,
             imageURL = 'https://i.pinimg.com/236x/b4/bf/49/b4bf495ba0b4dbde2a9e4ebcc602248b.jpg',
             width = int(self.winfo_width() * (3/12)),
