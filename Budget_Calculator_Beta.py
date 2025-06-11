@@ -5,11 +5,14 @@ from ShoppingList import *
 import tkinter
 from tkinter import *
 from tkinter import ttk
-import sys
+import sys, os
 
-sys.path.insert(0, "GitHub/Special_tkinter_objects")
+special_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 
+                                            "..", "Special_tkinter_objects"))
 
-from Special_tkinter_objects import tkinterPlus2 as tk2
+print(os.path.abspath(os.path.join(os.path.dirname(__file__), 
+                                            "..", "Special_tkinter_objects")))
+sys.path.append(special_path)
 
 
 root = tkinter.Tk() #initiate the window
