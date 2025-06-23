@@ -5,17 +5,13 @@ from ShoppingList import *
 import tkinter
 from tkinter import *
 from tkinter import ttk
-import sys, os
 
-special_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 
-                                            "..", "Special_tkinter_objects"))
-
-print(os.path.abspath(os.path.join(os.path.dirname(__file__), 
-                                            "..", "Special_tkinter_objects")))
-sys.path.append(special_path)
+import sys
+sys.path.append("/Users/anayaahanotu/Documents/Coding/GitHub/Special_tkinter_objects/")
+import tkinterPlus2 as tk2
 
 
-root = tkinter.Tk() #initiate the window
+root = tkinter.Tk() #initiate the windowx
 root.configure(bg='#89CFF0')
 root.title('Budget calculator')
 root.geometry('1600x900')
@@ -99,14 +95,14 @@ class Budget_Calculator(Frame):
 
         self.update()
 
-        self.visual = tk2.LabelImage(
-            master = self,
-            imageURL = 'https://i.pinimg.com/236x/b4/bf/49/b4bf495ba0b4dbde2a9e4ebcc602248b.jpg',
-            width = int(self.winfo_width() * (3/12)),
-            height = int(self.winfo_height() / 2),
-            background = 'green',
-            )
-        self.visual.place(relx=0, rely=7/24, relwidth=3/12, relheight=1/2)
+        # self.visual = tk2.LabelImage(
+        #     master = self,
+        #     imageURL = 'https://i.pinimg.com/736x/54/dd/48/54dd487efe83f1545c4033c137ea7ef8.jpg',
+        #     width = int(self.winfo_width() * (3/12)),
+        #     height = int(self.winfo_height() / 2),
+        #     background = 'green',
+        #     )
+        # self.visual.place(relx=0, rely=7/24, relwidth=3/12, relheight=1/2)
 
         visualDescription = Label(
             self,

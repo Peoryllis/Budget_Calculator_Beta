@@ -1,8 +1,6 @@
 import sys
-
-sys.path.insert(0, "GitHub/Special_tkinter_objects")
-
-from Special_tkinter_objects import tkinterPlus2 as tk2
+sys.path.append("/Users/anayaahanotu/Documents/Coding/GitHub/Special_tkinter_objects/")
+import tkinterPlus2 as tk2
 
 from tkinter import *
 import time

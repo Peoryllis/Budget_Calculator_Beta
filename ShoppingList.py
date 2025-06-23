@@ -1,6 +1,10 @@
 from DataListBeta import *
 import random
 
+import sys
+sys.path.append("/Users/anayaahanotu/Documents/Coding/GitHub/Special_tkinter_objects/")
+from tkinterPlus2 import *
+
 class BillsCounter(Frame):
     '''BillsCounter obj
     Keeps a data list of your Bills with total cost (monthly) at the top'''

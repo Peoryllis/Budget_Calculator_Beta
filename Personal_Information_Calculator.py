@@ -1,7 +1,9 @@
 import sys
-sys.path.append('cd')
-from tkinterPlus import *
+sys.path.append("/Users/anayaahanotu/Documents/Coding/GitHub/Special_tkinter_objects/")
+from tkinterPlus2 import *
 from datetime import date
+
+from tkinter import *
 
 class BillsCalculator(Frame):
     '''BillsCalculator'''
